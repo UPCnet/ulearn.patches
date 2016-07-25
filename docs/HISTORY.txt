@@ -1,7 +1,15 @@
 Changelog
 =========
 
-0.1 (unreleased)
+1.0 (25/07/2016)
 ----------------
 
-- Initial release
+* change [roberto.diaz]
+* changes [roberto.diaz]
+* Update README.md [Roberto Diaz]
+* Delete README.txt [Roberto Diaz]
+* Merge branch 'master' of https://github.com/UPCnet/ulearn.patches [roberto.diaz]
+* default base package [roberto.diaz]
+* Initial commit [Roberto Diaz]
+
+
