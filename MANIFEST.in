@@ -1,0 +1,4 @@
+recursive-include ulearn *
+recursive-include docs *
+include *
+global-exclude *.pyc
