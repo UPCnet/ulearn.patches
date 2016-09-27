@@ -6,10 +6,10 @@
     <include package="collective.monkeypatcher" />
 
     <monkey:patch
-        description="Override ldap group search on ldapgroupsync"
-        class="genweb.core.directory.views"
-        original="search_ldap_groups"
-        replacement=".patches.search_ldap_groups"
+        description="Override ldap group search in sharing UnicodeEncodeError group"
+        class="plone.app.workflow.browser.sharing.SharingView"
+        original="update_role_settings"
+        replacement=".patches.update_role_settings"
         />
 
     <monkey:patch
@@ -34,31 +34,40 @@
         />
 
     <monkey:patch
-        description="Override ldap group search in sharing UnicodeEncodeError group"
-        class="plone.app.workflow.browser.sharing.SharingView"
-        original="update_role_settings"
-        replacement=".patches.update_role_settings"
-        />
-
-    <monkey:patch
-      description=""
-      class="plone.dexterity.content.DexterityContent"
-      original="__before_publishing_traverse__"
-      replacement=".patches.DexterityContent__before_publishing_traverse__"
-      />
-
-    <monkey:patch
-      description=""
-      class="plone.dexterity.content.Container"
-      original="__before_publishing_traverse__"
-      replacement=".patches.Container__before_publishing_traverse__"
-      />
-
-    <monkey:patch
         description="Override clear and rebuild catalog UnicodeEncodeError group"
         class="Products.PluginIndexes.common.UnIndex.UnIndex"
         original="insertForwardIndexEntry"
         replacement=".patches.insertForwardIndexEntry"
         />
+
+    <monkey:patch
+        description="Override clear and rebuild catalog UnicodeEncodeError group"
+        class="Products.PluginIndexes.common.UnIndex.UnIndex"
+        original="removeForwardIndexEntry"
+        replacement=".patches.removeForwardIndexEntry"
+        />
+
+    <monkey:patch
+        description="Parche para que no pete la busqueda de grupos con acento"
+        class="Products.PlonePAS.plugins.role.GroupAwareRoleManager"
+        original="getRolesForPrincipal"
+        replacement=".patches.getRolesForPrincipal"
+        />
+
+    <monkey:patch
+        description="Parche para que te muestre un grupo con acento"
+        class="plone.app.controlpanel.usergroups.GroupMembershipControlPanel"
+        original="update"
+        replacement=".patches.update"
+        />
+
+
+    <monkey:patch
+        description="Parche para que te devuelva los miembros de un grupo con acento"
+        class="plone.app.controlpanel.usergroups.GroupMembershipControlPanel"
+        original="getMembers"
+        replacement=".patches.getMembers"
+        />
+
 
 </configure>
