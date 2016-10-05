@@ -5,7 +5,7 @@ long_description = open("README.txt").read() + "\n" + open(os.path.join("docs", 
 
 
 setup(name='ulearn.patches',
-      version='1.1',
+      version='1.2.dev0',
       description="",
       long_description=long_description,
       # Get more strings from
