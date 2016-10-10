@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.2 (unreleased)
+1.2 (2016-10-10)
 ----------------
 
-- Nothing changed yet.
-
+* Valor por defecto GROUPS_QUERY [Pilar Marinas]
 
 1.1 (2016-10-05)
 ----------------
