@@ -34,6 +34,12 @@ def getGroups(self, dn='*', attr=None, pwd=''):
         in, all groups for that particular DN.
     """
     ALT_LDAP_URI, ALT_LDAP_DN, ALT_LDAP_PASSWORD, BASEDN, GROUPS_QUERY, USER_GROUPS_QUERY = get_ldap_config()
+
+    if GROUPS_QUERY == '':
+        GROUPS_QUERY = '(&(objectClass=groupOfNames))'
+    if USER_GROUPS_QUERY == '':
+        USER_GROUPS_QUERY = '(&(objectClass=groupOfNames)(member=%s))'
+
     group_list = []
     no_show = ('Anonymous', 'Authenticated', 'Shared')
     if self._local_groups:
@@ -113,6 +119,12 @@ def searchGroups(self, attrs=(), exact_match=False, **kw):
     group attributes is static for now.
     """
     ALT_LDAP_URI, ALT_LDAP_DN, ALT_LDAP_PASSWORD, BASEDN, GROUPS_QUERY, USER_GROUPS_QUERY = get_ldap_config()
+
+    if GROUPS_QUERY == '':
+        GROUPS_QUERY = '(&(objectClass=groupOfNames))'
+    if USER_GROUPS_QUERY == '':
+        USER_GROUPS_QUERY = '(&(objectClass=groupOfNames)(member=%s))'
+
     groups = []
     groups_base = self.groups_base
     filt_list = []
