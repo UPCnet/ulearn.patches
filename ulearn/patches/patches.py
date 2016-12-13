@@ -36,9 +36,9 @@ def getGroups(self, dn='*', attr=None, pwd=''):
     ALT_LDAP_URI, ALT_LDAP_DN, ALT_LDAP_PASSWORD, BASEDN, GROUPS_QUERY, USER_GROUPS_QUERY = get_ldap_config()
 
     if GROUPS_QUERY == '':
-        GROUPS_QUERY = '(&(objectClass=groupOfNames))'
+        GROUPS_QUERY = '(|(objectClass=univentionGroup)(objectClass=group)(objectClass=groupOfNames)(objectClass=groupOfUniqueNames)(objectClass=accessGroup))'
     if USER_GROUPS_QUERY == '':
-        USER_GROUPS_QUERY = '(&(objectClass=groupOfNames)(member=%s))'
+        USER_GROUPS_QUERY = '(|(objectClass=univentionGroup)(objectClass=group)(objectClass=groupOfNames)(objectClass=groupOfUniqueNames)(objectClass=accessGroup)(member=%s))'
 
     group_list = []
     no_show = ('Anonymous', 'Authenticated', 'Shared')
@@ -121,9 +121,9 @@ def searchGroups(self, attrs=(), exact_match=False, **kw):
     ALT_LDAP_URI, ALT_LDAP_DN, ALT_LDAP_PASSWORD, BASEDN, GROUPS_QUERY, USER_GROUPS_QUERY = get_ldap_config()
 
     if GROUPS_QUERY == '':
-        GROUPS_QUERY = '(&(objectClass=groupOfNames))'
+        GROUPS_QUERY = '(|(objectClass=univentionGroup)(objectClass=group)(objectClass=groupOfNames)(objectClass=groupOfUniqueNames)(objectClass=accessGroup))'
     if USER_GROUPS_QUERY == '':
-        USER_GROUPS_QUERY = '(&(objectClass=groupOfNames)(member=%s))'
+        USER_GROUPS_QUERY = '(|(objectClass=univentionGroup)(objectClass=group)(objectClass=groupOfNames)(objectClass=groupOfUniqueNames)(objectClass=accessGroup)(member=%s))'
 
     groups = []
     groups_base = self.groups_base
