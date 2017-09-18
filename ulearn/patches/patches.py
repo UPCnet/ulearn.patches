@@ -3,6 +3,8 @@ import ldap
 from ldap.filter import filter_format
 from genweb.core.directory.views import get_ldap_config
 
+from plone.app.contenttypes import _
+
 def from_latin1(s):
     """
         Replaces LDAPUserFolder origin from_utf8 to return unicode from
