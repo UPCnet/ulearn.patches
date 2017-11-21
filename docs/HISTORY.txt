@@ -1,11 +1,12 @@
 Changelog
 =========
 
-1.3 (unreleased)
+1.3 (2017-11-21)
 ----------------
 
-- Nothing changed yet.
-
+* Solved translation error [iago.lopez]
+* Solucionar filtro GROUPS_QUERY LDAP [Pilar Marinas]
+* Solucionar filtro GROUPS_QUERY LDAP [Pilar Marinas]
 
 1.2 (2016-10-10)
 ----------------
