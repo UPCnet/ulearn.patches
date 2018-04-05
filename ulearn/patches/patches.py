@@ -427,6 +427,7 @@ def update(self):
 
         self.groupMembers = self.getMembers()
 
+
 def getMembers(self):
         searchResults = self.gtool.getGroupMembers(self.groupname.decode('utf-8'))
 
@@ -438,3 +439,37 @@ def getMembers(self):
 
         mergedResults = groupResults + userResults
         return filter(None, mergedResults)
+
+
+def aggregateIndex(self, view_name, req, req_names, local_keys):
+    '''
+    EL CODIGO ORIGINAL NO TIENE EN CUENTA EL UTF-8 Y DA ERROR EN ASPB
+    Returns the index to be used when looking for or inserting
+    a cache entry.
+    view_name is a string.
+    local_keys is a mapping or None.
+    '''
+    req_index = []
+    # Note: req_names is already sorted.
+    for key in req_names:
+        if req is None:
+            val = ''
+        else:
+            val = req.get(key, '')
+        req_index.append((str(key), str(val)))
+    if local_keys:
+        local_index = []
+        for key, val in local_keys.items():
+            try:
+                local_index.append((str(key), str(val)))
+            except:
+                pass
+        local_index.sort()
+    else:
+        local_index = ()
+    try:
+        str_value = (str(view_name.encode('utf-8')), tuple(req_index), tuple(local_index))
+    except:
+        str_value = (str(view_name), tuple(req_index), tuple(local_index))
+    # return (str(view_name.encode('utf-8')), tuple(req_index), tuple(local_index))
+    return str_value

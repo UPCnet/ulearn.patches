@@ -69,5 +69,11 @@
         replacement=".patches.getMembers"
         />
 
+    <monkey:patch
+        description="Add decode UTF-8 en la busqueda de users del usersgroups y del porlet (encontrado en ASPB)"
+        class="Products.StandardCacheManagers.RAMCacheManager.ObjectCacheEntries"
+        original="aggregateIndex"
+        replacement=".patches.aggregateIndex"
+        />
 
 </configure>
