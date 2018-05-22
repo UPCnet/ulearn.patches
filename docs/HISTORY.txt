@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.4 (unreleased)
+1.4 (2018-05-22)
 ----------------
 
-- Nothing changed yet.
-
+* ASPB monkey patch search users decode error [Roberto Diaz]
 
 1.3 (2017-11-21)
 ----------------
